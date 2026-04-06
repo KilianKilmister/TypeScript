@@ -441,6 +441,7 @@ namespace ts {
         /* @internal */ LastContextualKeyword = OfKeyword,
     }
 
+//#region type TriviaSyntaxKind
     export type TriviaSyntaxKind =
         | SyntaxKind.SingleLineCommentTrivia
         | SyntaxKind.MultiLineCommentTrivia
@@ -449,7 +450,9 @@ namespace ts {
         | SyntaxKind.ShebangTrivia
         | SyntaxKind.ConflictMarkerTrivia
         ;
+//#endregion
 
+//#region type LiteralSyntaxKind
     export type LiteralSyntaxKind =
         | SyntaxKind.NumericLiteral
         | SyntaxKind.BigIntLiteral
@@ -459,13 +462,17 @@ namespace ts {
         | SyntaxKind.RegularExpressionLiteral
         | SyntaxKind.NoSubstitutionTemplateLiteral
         ;
+//#endregion
 
+//#region type PseudoLiteralSyntaxKind
     export type PseudoLiteralSyntaxKind =
         | SyntaxKind.TemplateHead
         | SyntaxKind.TemplateMiddle
         | SyntaxKind.TemplateTail
         ;
+//#endregion
 
+//#region type PunctuationSyntaxKind
     export type PunctuationSyntaxKind =
         | SyntaxKind.OpenBraceToken
         | SyntaxKind.CloseBraceToken
@@ -525,7 +532,9 @@ namespace ts {
         | SyntaxKind.BarEqualsToken
         | SyntaxKind.CaretEqualsToken
         ;
+//#endregion
 
+//#region type KeywordSyntaxKind
     export type KeywordSyntaxKind =
         | SyntaxKind.AbstractKeyword
         | SyntaxKind.AnyKeyword
@@ -604,7 +613,9 @@ namespace ts {
         | SyntaxKind.WithKeyword
         | SyntaxKind.YieldKeyword
         ;
+//#endregion
 
+//#region type ModifierSyntaxKind
     export type ModifierSyntaxKind =
         | SyntaxKind.AbstractKeyword
         | SyntaxKind.AsyncKeyword
@@ -618,7 +629,9 @@ namespace ts {
         | SyntaxKind.ReadonlyKeyword
         | SyntaxKind.StaticKeyword
         ;
+//#endregion
 
+//#region type KeywordTypeSyntaxKind
     export type KeywordTypeSyntaxKind =
         | SyntaxKind.AnyKeyword
         | SyntaxKind.BigIntKeyword
@@ -632,7 +645,9 @@ namespace ts {
         | SyntaxKind.UnknownKeyword
         | SyntaxKind.VoidKeyword
         ;
+//#endregion
 
+//#region type TypeNodeSyntaxKind
     /* @internal */
     export type TypeNodeSyntaxKind =
         | KeywordTypeSyntaxKind
@@ -671,7 +686,9 @@ namespace ts {
         | SyntaxKind.JSDocSignature
         | SyntaxKind.JSDocTypeLiteral
         ;
+//#endregion
 
+//#region type TokenSyntaxKind
     export type TokenSyntaxKind =
         | SyntaxKind.Unknown
         | SyntaxKind.EndOfFileToken
@@ -682,7 +699,9 @@ namespace ts {
         | SyntaxKind.Identifier
         | KeywordSyntaxKind
         ;
+//#endregion
 
+//#region type JsxTokenSyntaxKind
     export type JsxTokenSyntaxKind =
         | SyntaxKind.LessThanSlashToken
         | SyntaxKind.EndOfFileToken
@@ -692,7 +711,9 @@ namespace ts {
         | SyntaxKind.OpenBraceToken
         | SyntaxKind.LessThanToken
         ;
+//#endregion
 
+//#region type JSDocSyntaxKind
     export type JSDocSyntaxKind =
         | SyntaxKind.EndOfFileToken
         | SyntaxKind.WhitespaceTrivia
@@ -713,6 +734,7 @@ namespace ts {
         | SyntaxKind.Unknown
         | KeywordSyntaxKind
         ;
+//#endregion
 
     export const enum NodeFlags {
         None               = 0,
@@ -850,6 +872,7 @@ namespace ts {
         /* @internal */ jsDocCache?: readonly JSDocTag[];     // Cache for getJSDocTags
     }
 
+//#region type HasJSDoc
     export type HasJSDoc =
         | ParameterDeclaration
         | CallSignatureDeclaration
@@ -888,7 +911,9 @@ namespace ts {
         | NamedTupleMember
         | EndOfFileToken
         ;
+//#endregion
 
+//#region type HasType
     export type HasType =
         | SignatureDeclaration
         | VariableDeclaration
@@ -907,14 +932,18 @@ namespace ts {
         | JSDocOptionalType
         | JSDocVariadicType
         ;
+//#endregion
 
+//#region type HasTypeArguments
     export type HasTypeArguments =
         | CallExpression
         | NewExpression
         | TaggedTemplateExpression
         | JsxOpeningElement
         | JsxSelfClosingElement;
+//#endregion
 
+//#region type HasInitializer
     export type HasInitializer =
         | HasExpressionInitializer
         | ForStatement
@@ -922,7 +951,9 @@ namespace ts {
         | ForOfStatement
         | JsxAttribute
         ;
+//#endregion
 
+//#region type HasExpressionInitializer
     export type HasExpressionInitializer =
         | VariableDeclaration
         | ParameterDeclaration
@@ -932,7 +963,9 @@ namespace ts {
         | PropertyAssignment
         | EnumMember
         ;
+//#endregion
 
+//#region type HasModifiers
     // NOTE: Changing this list requires changes to `canHaveModifiers` in factory/utilities.ts and `updateModifiers` in factory/nodeFactory.ts
     /* @internal */
     export type HasModifiers =
@@ -960,6 +993,7 @@ namespace ts {
         | ExportAssignment
         | ExportDeclaration
         ;
+//#endregion
 
     /* @internal */
     export type MutableNodeArray<T extends Node> = NodeArray<T> & T[];
@@ -1023,6 +1057,7 @@ namespace ts {
     /** @deprecated Use `ReadonlyKeyword` instead. */
     export type ReadonlyToken = ReadonlyKeyword;
 
+//#region type Modifier
     export type Modifier =
         | AbstractKeyword
         | AsyncKeyword
@@ -1036,23 +1071,30 @@ namespace ts {
         | ReadonlyKeyword
         | StaticKeyword
         ;
+//#endregion
 
+//#region type AccessibilityModifier
     export type AccessibilityModifier =
         | PublicKeyword
         | PrivateKeyword
         | ProtectedKeyword
         ;
+//#endregion
 
+//#region type ParameterPropertyModifier
     export type ParameterPropertyModifier =
         | AccessibilityModifier
         | ReadonlyKeyword
         ;
+//#endregion
 
+//#region type ClassMemberModifier
     export type ClassMemberModifier =
         | AccessibilityModifier
         | ReadonlyKeyword
         | StaticKeyword
         ;
+//#endregion
 
     export type ModifiersArray = NodeArray<Modifier>;
 
@@ -1107,6 +1149,7 @@ namespace ts {
 
     export type PropertyName = Identifier | StringLiteral | NumericLiteral | ComputedPropertyName | PrivateIdentifier;
 
+//#region type DeclarationName
     export type DeclarationName =
         | Identifier
         | PrivateIdentifier
@@ -1116,6 +1159,7 @@ namespace ts {
         | ElementAccessExpression
         | BindingPattern
         | EntityNameExpression;
+//#endregion
 
     export interface Declaration extends Node {
         _declarationBrand: any;
@@ -1202,6 +1246,7 @@ namespace ts {
         /* @internal */ typeArguments?: NodeArray<TypeNode>; // Used for quick info, replaces typeParameters for instantiated signatures
     }
 
+//#region type SignatureDeclaration
     export type SignatureDeclaration =
         | CallSignatureDeclaration
         | ConstructSignatureDeclaration
@@ -1216,6 +1261,7 @@ namespace ts {
         | AccessorDeclaration
         | FunctionExpression
         | ArrowFunction;
+//#endregion
 
     export interface CallSignatureDeclaration extends SignatureDeclarationBase, TypeElement {
         readonly kind: SyntaxKind.CallSignature;
@@ -1298,6 +1344,7 @@ namespace ts {
         readonly name?: PropertyName;
     }
 
+//#region type ObjectLiteralElementLike
     /** Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute. */
     export type ObjectLiteralElementLike
         = PropertyAssignment
@@ -1306,6 +1353,7 @@ namespace ts {
         | MethodDeclaration
         | AccessorDeclaration
         ;
+//#endregion
 
     export interface PropertyAssignment extends ObjectLiteralElement, JSDocContainer {
         readonly kind: SyntaxKind.PropertyAssignment;
@@ -1334,6 +1382,7 @@ namespace ts {
         readonly expression: Expression;
     }
 
+//#region type VariableLikeDeclaration
     export type VariableLikeDeclaration =
         | VariableDeclaration
         | ParameterDeclaration
@@ -1346,6 +1395,7 @@ namespace ts {
         | EnumMember
         | JSDocPropertyTag
         | JSDocParameterTag;
+//#endregion
 
     export interface PropertyLikeDeclaration extends NamedDeclaration {
         readonly name: PropertyName;
@@ -1386,6 +1436,7 @@ namespace ts {
         /* @internal */ returnFlowNode?: FlowNode;
     }
 
+//#region type FunctionLikeDeclaration
     export type FunctionLikeDeclaration =
         | FunctionDeclaration
         | MethodDeclaration
@@ -1394,6 +1445,7 @@ namespace ts {
         | ConstructorDeclaration
         | FunctionExpression
         | ArrowFunction;
+//#endregion
     /** @deprecated Use SignatureDeclaration */
     export type FunctionLike = SignatureDeclaration;
 
@@ -1673,6 +1725,7 @@ namespace ts {
 
     // see: https://tc39.github.io/ecma262/#prod-UpdateExpression
     // see: https://tc39.github.io/ecma262/#prod-UnaryExpression
+//#region type PrefixUnaryOperator
     export type PrefixUnaryOperator
         = SyntaxKind.PlusPlusToken
         | SyntaxKind.MinusMinusToken
@@ -1680,6 +1733,7 @@ namespace ts {
         | SyntaxKind.MinusToken
         | SyntaxKind.TildeToken
         | SyntaxKind.ExclamationToken;
+//#endregion
 
     export interface PrefixUnaryExpression extends UpdateExpression {
         readonly kind: SyntaxKind.PrefixUnaryExpression;
@@ -1688,10 +1742,12 @@ namespace ts {
     }
 
     // see: https://tc39.github.io/ecma262/#prod-UpdateExpression
+//#region type PostfixUnaryOperator
     export type PostfixUnaryOperator
         = SyntaxKind.PlusPlusToken
         | SyntaxKind.MinusMinusToken
         ;
+//#endregion
 
     export interface PostfixUnaryExpression extends UpdateExpression {
         readonly kind: SyntaxKind.PostfixUnaryExpression;
@@ -1771,49 +1827,64 @@ namespace ts {
     }
 
     // see: https://tc39.github.io/ecma262/#prod-ExponentiationExpression
+//#region type ExponentiationOperator
     export type ExponentiationOperator =
         | SyntaxKind.AsteriskAsteriskToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-MultiplicativeOperator
+//#region type MultiplicativeOperator
     export type MultiplicativeOperator =
         | SyntaxKind.AsteriskToken
         | SyntaxKind.SlashToken
         | SyntaxKind.PercentToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-MultiplicativeExpression
+//#region type MultiplicativeOperatorOrHigher
     export type MultiplicativeOperatorOrHigher =
         | ExponentiationOperator
         | MultiplicativeOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-AdditiveExpression
+//#region type AdditiveOperator
     export type AdditiveOperator =
         | SyntaxKind.PlusToken
         | SyntaxKind.MinusToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-AdditiveExpression
+//#region type AdditiveOperatorOrHigher
     export type AdditiveOperatorOrHigher =
         | MultiplicativeOperatorOrHigher
         | AdditiveOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-ShiftExpression
+//#region type ShiftOperator
     export type ShiftOperator =
         | SyntaxKind.LessThanLessThanToken
         | SyntaxKind.GreaterThanGreaterThanToken
         | SyntaxKind.GreaterThanGreaterThanGreaterThanToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-ShiftExpression
+//#region type ShiftOperatorOrHigher
     export type ShiftOperatorOrHigher =
         | AdditiveOperatorOrHigher
         | ShiftOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-RelationalExpression
+//#region type RelationalOperator
     export type RelationalOperator =
         | SyntaxKind.LessThanToken
         | SyntaxKind.LessThanEqualsToken
@@ -1822,58 +1893,74 @@ namespace ts {
         | SyntaxKind.InstanceOfKeyword
         | SyntaxKind.InKeyword
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-RelationalExpression
+//#region type RelationalOperatorOrHigher
     export type RelationalOperatorOrHigher =
         | ShiftOperatorOrHigher
         | RelationalOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-EqualityExpression
+//#region type EqualityOperator
     export type EqualityOperator =
         | SyntaxKind.EqualsEqualsToken
         | SyntaxKind.EqualsEqualsEqualsToken
         | SyntaxKind.ExclamationEqualsEqualsToken
         | SyntaxKind.ExclamationEqualsToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-EqualityExpression
+//#region type EqualityOperatorOrHigher
     export type EqualityOperatorOrHigher =
         | RelationalOperatorOrHigher
         | EqualityOperator;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-BitwiseANDExpression
     // see: https://tc39.github.io/ecma262/#prod-BitwiseXORExpression
     // see: https://tc39.github.io/ecma262/#prod-BitwiseORExpression
+//#region type BitwiseOperator
     export type BitwiseOperator =
         | SyntaxKind.AmpersandToken
         | SyntaxKind.BarToken
         | SyntaxKind.CaretToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-BitwiseANDExpression
     // see: https://tc39.github.io/ecma262/#prod-BitwiseXORExpression
     // see: https://tc39.github.io/ecma262/#prod-BitwiseORExpression
+//#region type BitwiseOperatorOrHigher
     export type BitwiseOperatorOrHigher =
         | EqualityOperatorOrHigher
         | BitwiseOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-LogicalANDExpression
     // see: https://tc39.github.io/ecma262/#prod-LogicalORExpression
+//#region type LogicalOperator
     export type LogicalOperator =
         | SyntaxKind.AmpersandAmpersandToken
         | SyntaxKind.BarBarToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-LogicalANDExpression
     // see: https://tc39.github.io/ecma262/#prod-LogicalORExpression
+//#region type LogicalOperatorOrHigher
     export type LogicalOperatorOrHigher =
         | BitwiseOperatorOrHigher
         | LogicalOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-AssignmentOperator
+//#region type CompoundAssignmentOperator
     export type CompoundAssignmentOperator =
         | SyntaxKind.PlusEqualsToken
         | SyntaxKind.MinusEqualsToken
@@ -1891,31 +1978,40 @@ namespace ts {
         | SyntaxKind.AmpersandAmpersandEqualsToken
         | SyntaxKind.QuestionQuestionEqualsToken
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-AssignmentExpression
+//#region type AssignmentOperator
     export type AssignmentOperator =
         | SyntaxKind.EqualsToken
         | CompoundAssignmentOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-AssignmentExpression
+//#region type AssignmentOperatorOrHigher
     export type AssignmentOperatorOrHigher =
         | SyntaxKind.QuestionQuestionToken
         | LogicalOperatorOrHigher
         | AssignmentOperator
         ;
+//#endregion
 
     // see: https://tc39.github.io/ecma262/#prod-Expression
+//#region type BinaryOperator
     export type BinaryOperator =
         | AssignmentOperatorOrHigher
         | SyntaxKind.CommaToken
         ;
+//#endregion
 
+//#region type LogicalOrCoalescingAssignmentOperator
     export type LogicalOrCoalescingAssignmentOperator
         = SyntaxKind.AmpersandAmpersandEqualsToken
         | SyntaxKind.BarBarEqualsToken
         | SyntaxKind.QuestionQuestionEqualsToken
         ;
+//#endregion
 
     export type BinaryOperatorToken = Token<BinaryOperator>;
 
@@ -1941,27 +2037,34 @@ namespace ts {
         readonly left: ArrayLiteralExpression;
     }
 
+//#region type DestructuringAssignment
     export type DestructuringAssignment =
         | ObjectDestructuringAssignment
         | ArrayDestructuringAssignment
         ;
+//#endregion
 
+//#region type BindingOrAssignmentElement
     export type BindingOrAssignmentElement =
         | VariableDeclaration
         | ParameterDeclaration
         | ObjectBindingOrAssignmentElement
         | ArrayBindingOrAssignmentElement
         ;
+//#endregion
 
+//#region type ObjectBindingOrAssignmentElement
     export type ObjectBindingOrAssignmentElement =
         | BindingElement
         | PropertyAssignment // AssignmentProperty
         | ShorthandPropertyAssignment // AssignmentProperty
         | SpreadAssignment // AssignmentRestProperty
         ;
+//#endregion
 
+//#region type ArrayBindingOrAssignmentElement
     export type ArrayBindingOrAssignmentElement =
-        | BindingElement
+        | BindingElement//
         | OmittedExpression // Elision
         | SpreadElement // AssignmentRestElement
         | ArrayLiteralExpression // ArrayAssignmentPattern
@@ -1971,29 +2074,38 @@ namespace ts {
         | PropertyAccessExpression // DestructuringAssignmentTarget
         | ElementAccessExpression // DestructuringAssignmentTarget
         ;
+//#endregion
 
+//#region type BindingOrAssignmentElementRestIndicator
     export type BindingOrAssignmentElementRestIndicator =
         | DotDotDotToken // from BindingElement
         | SpreadElement // AssignmentRestElement
         | SpreadAssignment // AssignmentRestProperty
         ;
+//#endregion
 
+//#region type BindingOrAssignmentElementTarget
     export type BindingOrAssignmentElementTarget =
         | BindingOrAssignmentPattern
         | Identifier
         | PropertyAccessExpression
         | ElementAccessExpression
         | OmittedExpression;
+//#endregion
 
+//#region type ObjectBindingOrAssignmentPattern
     export type ObjectBindingOrAssignmentPattern =
         | ObjectBindingPattern
         | ObjectLiteralExpression // ObjectAssignmentPattern
         ;
+//#endregion
 
+//#region type ArrayBindingOrAssignmentPattern
     export type ArrayBindingOrAssignmentPattern =
         | ArrayBindingPattern
         | ArrayLiteralExpression // ArrayAssignmentPattern
         ;
+//#endregion
 
     export type AssignmentPattern = ObjectLiteralExpression | ArrayLiteralExpression;
 
@@ -2095,6 +2207,7 @@ namespace ts {
         readonly kind: SyntaxKind.BigIntLiteral;
     }
 
+//#region type LiteralToken
     export type LiteralToken =
         | NumericLiteral
         | BigIntLiteral
@@ -2103,6 +2216,7 @@ namespace ts {
         | RegularExpressionLiteral
         | NoSubstitutionTemplateLiteral
         ;
+//#endregion
 
     export interface TemplateHead extends TemplateLiteralLikeNode {
         readonly kind: SyntaxKind.TemplateHead;
@@ -2125,16 +2239,20 @@ namespace ts {
         templateFlags?: TokenFlags;
     }
 
+//#region type PseudoLiteralToken
     export type PseudoLiteralToken =
         | TemplateHead
         | TemplateMiddle
         | TemplateTail
         ;
+//#endregion
 
+//#region type TemplateLiteralToken
     export type TemplateLiteralToken =
         | NoSubstitutionTemplateLiteral
         | PseudoLiteralToken
         ;
+//#endregion
 
     export interface TemplateExpression extends PrimaryExpression {
         readonly kind: SyntaxKind.TemplateExpression;
@@ -2142,10 +2260,12 @@ namespace ts {
         readonly templateSpans: NodeArray<TemplateSpan>;
     }
 
+//#region type TemplateLiteral
     export type TemplateLiteral =
         | TemplateExpression
         | NoSubstitutionTemplateLiteral
         ;
+//#endregion
 
     // Each of these corresponds to a substitution expression and a template literal, in that order.
     // The template literal must have kind TemplateMiddleLiteral or TemplateTailLiteral.
@@ -2268,19 +2388,23 @@ namespace ts {
         readonly questionDotToken: QuestionDotToken;
     }
 
+//#region type OptionalChain
     export type OptionalChain =
         | PropertyAccessChain
         | ElementAccessChain
         | CallChain
         | NonNullChain
         ;
+//#endregion
 
+//#region type OptionalChainRoot
     /* @internal */
     export type OptionalChainRoot =
         | PropertyAccessChainRoot
         | ElementAccessChainRoot
         | CallChainRoot
         ;
+//#endregion
 
     /** @internal */
     export interface WellKnownSymbolExpression extends PropertyAccessExpression {
@@ -2293,11 +2417,13 @@ namespace ts {
         readonly arguments: readonly [BindableStaticNameExpression, StringLiteralLike | NumericLiteral, ObjectLiteralExpression] & Readonly<TextRange>;
     };
 
+//#region type BindableStaticNameExpression
     /** @internal */
     export type BindableStaticNameExpression =
         | EntityNameExpression
         | BindableStaticElementAccessExpression
         ;
+//#endregion
 
     /** @internal */
     export type LiteralLikeElementAccessExpression = ElementAccessExpression & Declaration & {
@@ -2314,17 +2440,21 @@ namespace ts {
         readonly expression: BindableStaticNameExpression;
     };
 
+//#region type BindableStaticAccessExpression
     /** @internal */
     export type BindableStaticAccessExpression =
         | PropertyAccessEntityNameExpression
         | BindableStaticElementAccessExpression
         ;
+//#endregion
 
+//#region type BindableAccessExpression
     /** @internal */
     export type BindableAccessExpression =
         | PropertyAccessEntityNameExpression
         | BindableElementAccessExpression
         ;
+//#endregion
 
     /** @internal */
     export interface BindableStaticPropertyAssignmentExpression extends BinaryExpression {
@@ -2366,6 +2496,7 @@ namespace ts {
         /*@internal*/ questionDotToken?: QuestionDotToken; // NOTE: Invalid syntax, only used to report a grammar error.
     }
 
+//#region type CallLikeExpression
     export type CallLikeExpression =
         | CallExpression
         | NewExpression
@@ -2373,6 +2504,7 @@ namespace ts {
         | Decorator
         | JsxOpeningLikeElement
         ;
+//#endregion
 
     export interface AsExpression extends Expression {
         readonly kind: SyntaxKind.AsExpression;
@@ -2386,10 +2518,12 @@ namespace ts {
         readonly expression: UnaryExpression;
     }
 
+//#region type AssertionExpression
     export type AssertionExpression =
         | TypeAssertion
         | AsExpression
         ;
+//#endregion
 
     export interface NonNullExpression extends LeftHandSideExpression {
         readonly kind: SyntaxKind.NonNullExpression;
@@ -2423,21 +2557,27 @@ namespace ts {
     }
 
     /// Either the opening tag in a <Tag>...</Tag> pair or the lone <Tag /> in a self-closing form
+//#region type JsxOpeningLikeElement
     export type JsxOpeningLikeElement =
         | JsxSelfClosingElement
         | JsxOpeningElement
         ;
+//#endregion
 
+//#region type JsxAttributeLike
     export type JsxAttributeLike =
         | JsxAttribute
         | JsxSpreadAttribute
         ;
+//#endregion
 
+//#region type JsxTagNameExpression
     export type JsxTagNameExpression =
         | Identifier
         | ThisExpression
         | JsxTagNamePropertyAccess
         ;
+//#endregion
 
     export interface JsxTagNamePropertyAccess extends PropertyAccessExpression {
         readonly expression: JsxTagNameExpression;
@@ -2518,6 +2658,7 @@ namespace ts {
         readonly containsOnlyTriviaWhiteSpaces: boolean;
     }
 
+//#region type JsxChild
     export type JsxChild =
         | JsxText
         | JsxExpression
@@ -2525,6 +2666,7 @@ namespace ts {
         | JsxSelfClosingElement
         | JsxFragment
         ;
+//#endregion
 
     export interface Statement extends Node {
         _statementBrand: any;
@@ -2582,12 +2724,14 @@ namespace ts {
         readonly name?: Identifier;
     }
 
+//#region type BlockLike
     export type BlockLike =
         | SourceFile
         | Block
         | ModuleBlock
         | CaseOrDefaultClause
         ;
+//#endregion
 
     export interface Block extends Statement {
         readonly kind: SyntaxKind.Block;
@@ -2632,10 +2776,12 @@ namespace ts {
         readonly expression: Expression;
     }
 
+//#region type ForInitializer
     export type ForInitializer =
         | VariableDeclarationList
         | Expression
         ;
+//#endregion
 
     export interface ForStatement extends IterationStatement {
         readonly kind: SyntaxKind.ForStatement;
@@ -2644,10 +2790,12 @@ namespace ts {
         readonly incrementor?: Expression;
     }
 
+//#region type ForInOrOfStatement
     export type ForInOrOfStatement =
         | ForInStatement
         | ForOfStatement
         ;
+//#endregion
 
     export interface ForInStatement extends IterationStatement {
         readonly kind: SyntaxKind.ForInStatement;
@@ -2672,10 +2820,12 @@ namespace ts {
         readonly label?: Identifier;
     }
 
+//#region type BreakOrContinueStatement
     export type BreakOrContinueStatement =
         | BreakStatement
         | ContinueStatement
         ;
+//#endregion
 
     export interface ReturnStatement extends Statement {
         readonly kind: SyntaxKind.ReturnStatement;
@@ -2716,10 +2866,12 @@ namespace ts {
         /* @internal */ fallthroughFlowNode?: FlowNode;
     }
 
+//#region type CaseOrDefaultClause
     export type CaseOrDefaultClause =
         | CaseClause
         | DefaultClause
         ;
+//#endregion
 
     export interface LabeledStatement extends Statement, JSDocContainer {
         readonly kind: SyntaxKind.LabeledStatement;
@@ -2746,19 +2898,24 @@ namespace ts {
         readonly block: Block;
     }
 
+//#region type ObjectTypeDeclaration
     export type ObjectTypeDeclaration =
         | ClassLikeDeclaration
         | InterfaceDeclaration
         | TypeLiteralNode
         ;
+//#endregion
 
+//#region type DeclarationWithTypeParameters
     export type DeclarationWithTypeParameters =
         | DeclarationWithTypeParameterChildren
         | JSDocTypedefTag
         | JSDocCallbackTag
         | JSDocSignature
         ;
+//#endregion
 
+//#region type DeclarationWithTypeParameterChildren
     export type DeclarationWithTypeParameterChildren =
         | SignatureDeclaration
         | ClassLikeDeclaration
@@ -2766,6 +2923,7 @@ namespace ts {
         | TypeAliasDeclaration
         | JSDocTemplateTag
         ;
+//#endregion
 
     export interface ClassLikeDeclarationBase extends NamedDeclaration, JSDocContainer {
         readonly kind: SyntaxKind.ClassDeclaration | SyntaxKind.ClassExpression;
@@ -2785,10 +2943,12 @@ namespace ts {
         readonly kind: SyntaxKind.ClassExpression;
     }
 
+//#region type ClassLikeDeclaration
     export type ClassLikeDeclaration =
         | ClassDeclaration
         | ClassExpression
         ;
+//#endregion
 
     export interface ClassElement extends NamedDeclaration {
         _classElementBrand: any;
@@ -2838,15 +2998,19 @@ namespace ts {
         readonly members: NodeArray<EnumMember>;
     }
 
+//#region type ModuleName
     export type ModuleName =
         | Identifier
         | StringLiteral
         ;
+//#endregion
 
+//#region type ModuleBody
     export type ModuleBody =
         | NamespaceBody
         | JSDocNamespaceBody
         ;
+//#endregion
 
     /* @internal */
     export interface AmbientModuleDeclaration extends ModuleDeclaration {
@@ -2860,20 +3024,24 @@ namespace ts {
         readonly body?: ModuleBody | JSDocNamespaceDeclaration;
     }
 
+//#region type NamespaceBody
     export type NamespaceBody =
         | ModuleBlock
         | NamespaceDeclaration
         ;
+//#endregion
 
     export interface NamespaceDeclaration extends ModuleDeclaration {
         readonly name: Identifier;
         readonly body: NamespaceBody;
     }
 
+//#region type JSDocNamespaceBody
     export type JSDocNamespaceBody =
         | Identifier
         | JSDocNamespaceDeclaration
         ;
+//#endregion
 
     export interface JSDocNamespaceDeclaration extends ModuleDeclaration {
         readonly name: Identifier;
@@ -2886,10 +3054,12 @@ namespace ts {
         readonly statements: NodeArray<Statement>;
     }
 
+//#region type ModuleReference
     export type ModuleReference =
         | EntityName
         | ExternalModuleReference
         ;
+//#endregion
 
     /**
      * One of:
@@ -2924,15 +3094,19 @@ namespace ts {
         readonly moduleSpecifier: Expression;
     }
 
+//#region type NamedImportBindings
     export type NamedImportBindings =
         | NamespaceImport
         | NamedImports
         ;
+//#endregion
 
+//#region type NamedExportBindings
     export type NamedExportBindings =
         | NamespaceExport
         | NamedExports
         ;
+//#endregion
 
     // In case of:
     // import d from "mod" => name = d, namedBinding = undefined
@@ -3005,16 +3179,20 @@ namespace ts {
         readonly name: Identifier;           // Declared name
     }
 
+//#region type ImportOrExportSpecifier
     export type ImportOrExportSpecifier =
         | ImportSpecifier
         | ExportSpecifier
         ;
+//#endregion
 
+//#region type TypeOnlyCompatibleAliasDeclaration
     export type TypeOnlyCompatibleAliasDeclaration =
         | ImportClause
         | NamespaceImport
         | ImportOrExportSpecifier
         ;
+//#endregion
 
     /**
      * This is either an `export =` or an `export default` declaration.
@@ -3096,12 +3274,14 @@ namespace ts {
         readonly type: TypeNode;
     }
 
+//#region type JSDocTypeReferencingNode
     export type JSDocTypeReferencingNode =
         | JSDocVariadicType
         | JSDocOptionalType
         | JSDocNullableType
         | JSDocNonNullableType
         ;
+//#endregion
 
     export interface JSDoc extends Node {
         readonly kind: SyntaxKind.JSDocComment;
@@ -3256,6 +3436,7 @@ namespace ts {
         Condition = TrueCondition | FalseCondition,
     }
 
+//#region type FlowNode
     export type FlowNode =
         | FlowStart
         | FlowLabel
@@ -3266,6 +3447,7 @@ namespace ts {
         | FlowArrayMutation
         | FlowCall
         | FlowReduceLabel;
+//#endregion
 
     export interface FlowNodeBase {
         flags: FlowFlags;
@@ -3536,16 +3718,20 @@ namespace ts {
         getLineAndCharacterOfPosition(pos: number): LineAndCharacter;
     }
 
+//#region type UnparsedSourceText
     export type UnparsedSourceText =
         | UnparsedPrepend
         | UnparsedTextLike
         ;
+//#endregion
 
+//#region type UnparsedNode
     export type UnparsedNode =
         | UnparsedPrologue
         | UnparsedSourceText
         | UnparsedSyntheticReference
         ;
+//#endregion
 
     export interface UnparsedSection extends Node {
         readonly kind: SyntaxKind;
@@ -3591,6 +3777,7 @@ namespace ts {
         readonly operand: NumericLiteral;
     }
 
+//#region type JsonObjectExpression
     export type JsonObjectExpression =
         | ObjectLiteralExpression
         | ArrayLiteralExpression
@@ -3600,6 +3787,7 @@ namespace ts {
         | BooleanLiteral
         | NullLiteral
         ;
+//#endregion
 
     export interface JsonObjectExpressionStatement extends ExpressionStatement {
         readonly expression: JsonObjectExpression;
@@ -4376,6 +4564,7 @@ namespace ts {
         readonly declarations: NodeArray<RequireVariableDeclaration>;
     }
 
+//#region type LateVisibilityPaintedStatement
     /* @internal */
     export type LateVisibilityPaintedStatement =
         | AnyImportSyntax
@@ -4386,6 +4575,7 @@ namespace ts {
         | TypeAliasDeclaration
         | InterfaceDeclaration
         | EnumDeclaration;
+//#endregion
 
     /* @internal */
     export interface SymbolVisibilityResult {
@@ -6525,6 +6715,7 @@ namespace ts {
         All = Parentheses | Assertions | PartiallyEmittedExpressions
     }
 
+//#region type OuterExpression
     /* @internal */
     export type OuterExpression =
         | ParenthesizedExpression
@@ -6532,6 +6723,7 @@ namespace ts {
         | AsExpression
         | NonNullExpression
         | PartiallyEmittedExpression;
+//#endregion
 
     export type TypeOfTag = "undefined" | "number" | "bigint" | "boolean" | "string" | "symbol" | "object" | "function";
 
